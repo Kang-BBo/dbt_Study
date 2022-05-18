@@ -2,20 +2,21 @@
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
+    - name: stg_ga
+      description: "dbt 첫 학습 dbt TEST 테스트"
       columns:
-          - name: id
-            description: "The primary key for this table"
+          - name: event_id
+            description: "유니크한 이벤트 아이디"
             tests:
                 - unique
                 - not_null
+sources:
+  - name : bigquery_study
+    database: sqlproject-342908
+    schema: study_220518
+    tables:
+      - name: account_limit_x
+      - name: ga_limit_x
+      - name: log_limit_x
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+
